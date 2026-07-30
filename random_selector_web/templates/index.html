@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Random Selection System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="main-header">
+
+        <h1>🎲 Student Random Selection System</h1>
+
+        <p>
+            Upload • Configure • Select • History
+        </p>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main>
+
+        <div class="dashboard">
+
+            <!-- ================= Upload Card ================= -->
+
+            <section id="upload-card" class="card">
+
+                <h2>📂 Upload Dataset</h2>
+
+                <p class="subtitle">
+
+                    Supported Files
+
+                    <br>
+
+                    PDF • Excel • CSV • DOCX • JSON • XML
+
+                </p>
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    hidden
+                >
+
+                <!-- <button
+                    id="uploadBtn"
+                    class="primary-btn"
+                    onclick="document.getElementById('fileInput').click()">
+
+                    Upload Dataset 
+
+                </button> -->
+
+                <label for="fileInput" class="primary-btn upload-label">
+                    Upload Dataset
+                </label>
+
+                <div
+                    id="uploadStatus"
+                    class="status-box">
+
+                    No dataset uploaded.
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= Dataset Summary ================= -->
+
+            <section id="summary-card" class="card">
+
+                <h2>📊 Dataset Summary</h2>
+
+                <div class="summary-item">
+
+                    <strong>Uploaded File</strong>
+
+                    <span id="summaryFile">
+
+                        Not Uploaded
+
+                    </span>
+
+                </div>
+
+                <div class="summary-item">
+
+                    <strong>Total Records</strong>
+
+                    <span id="summaryRecords">
+
+                        0
+
+                    </span>
+
+                </div>
+
+                <div class="summary-item">
+
+                    <strong>Detected Columns</strong>
+
+                    <span id="summaryColumns">
+
+                        0
+
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= Selection Settings ================= -->
+
+            <section id="settings-card" class="card">
+
+                <h2>⚙ Selection Settings</h2>
+
+                <h4>Detected Columns</h4>
+
+                <div id="columnSelection">
+
+                    <p>
+
+                        Upload a dataset to detect columns.
+
+                    </p>
+
+                </div>
+
+                <br>
+
+                <label for="studentCount">
+
+                    Number of Students
+
+                </label>
+
+                <br><br>
+
+                <select id="studentCount">
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+
+                </select>
+
+                <br><br>
+
+                <button
+                    id="generateBtn"
+                    class="primary-btn"
+                    onclick="getRandom()"
+                    disabled>
+
+                    🎲 Generate Students
+
+                </button>
+                <br><br>
+
+                <button
+                    class="secondary-btn"
+                    onclick="resetDataset()">
+                    Reset Dataset
+                </button>
+
+            </section>
+
+
+            <!-- ================= Student Cards ================= -->
+
+            <section id="cards-container" class="card full-width">
+
+                <h2>🎓 Selected Students</h2>
+
+                <div id="studentContainer" class="student-grid">
+
+                    <div class="empty-state">
+
+                        <h3>No Students Selected</h3>
+
+                        <p>
+
+                            Upload a dataset and click
+                            <strong>Generate Students</strong>.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= History ================= -->
+
+            <section id="history-card" class="card full-width">
+
+                <h2>🕒 Today's History</h2>
+
+                <div id="historyContainer">
+
+                    <div class="empty-state">
+
+                        No history available.
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= Loading Overlay ================= -->
+
+    <div id="loadingOverlay" class="loading-overlay hidden">
+
+        <div class="loader"></div>
+
+        <p>Please wait...</p>
+
+    </div>
+
+
+    <!-- ================= Toast Notification ================= -->
+
+    <div id="toast" class="toast hidden"></div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            Student Random Selection System
+
+            <br>
+
+            Offline Ready | Version 3.0
+
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JavaScript ================= -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
