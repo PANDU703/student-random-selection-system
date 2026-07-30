@@ -1,1 +1,1 @@
-# Hi every one this is a small project related to Random selection from the files like pdf, Excel, CSV, DOCX, JSON, XML. Through this we can select the required columns with the 10 max records at a time.
+# Hi everyone this is a small project related to Random selection from the files like pdf, Excel, CSV, DOCX, JSON, XML. Through this we can select the required columns with the 10 max records at a time.
